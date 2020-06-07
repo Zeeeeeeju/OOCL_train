@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zeju Pay</title>
+	<style type="text/css">
+		body{
+			font-family: 'Times New Roman';
+			font-weight: bold;
+			background-color: #F7F7F7;
+		}
+		fieldset input{
+			float: left;
+			margin-right: 5px;
+		}
+	</style>
+</head>
+<body>
+<form action="" method="post">
+	<h1>Payment form</h1>
+	<p>Required fields are followed by *</p>
+	<h2>Contact information</h2>
+	<fieldset style="width: 500px;">
+    	<legend>Title</legend>
+    	<ul>
+    		<li>
+	    		<input type="radio" name="gender" value="Mister" id="mister">
+	    		<label for="mister">Mister</label>
+    		</li>
+    		<li>
+    			<input type="radio" name="gender" value="Miss" id="miss">
+    			<label for="miss">Miss</label>
+    		</li>
+    	</ul>
+  	</fieldset>
+  	<p>Name: * <input type="text"></p>
+  	<p>E-mail: * <input type="email"></p>
+  	<p>Password: * <input type="password"></p>
+  	<h2>Payment information</h2>
+  	<p>
+		<label for="card-type">Card type: </label>
+		<select id="card-type" style="width: 150px;padding: 2px 3px;border-radius: 5px;">
+			<option value ="visa">Visa</option>
+		</select>
+	</p>
+	<p>Card number: * <input type="number"></p>
+	<p>Expiration date: * <i>formatted as mm/yy</i> <input type="text" placeholder="yyyy/mm/dd"></p>
+	<input type="submit" name="submit" value="Validate the payment">
+</form>
+</body>
+</html>

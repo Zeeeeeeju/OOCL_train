@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zeju 九九乘法表</title>
+</head>
+<body>
+<table border="1">
+	<caption align="top">九九乘法表</caption>
+	<tbody>
+		<script type="text/javascript">
+			for (var i=1;i<=9;i++){
+				document.write("<tr>");
+				for (var j=1;j<=i;j++){
+					document.write("<td>",j,'*',i,'=',i*j,"</td>");
+				}
+				document.write("</tr>");
+			}
+		</script>
+	</tbody>
+</table>
+</body>
+</html>

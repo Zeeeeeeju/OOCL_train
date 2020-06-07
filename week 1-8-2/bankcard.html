@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Siwo Bank credit card</title>
+	<style type="text/css">
+		html{
+			background-color: #38c5ff;
+		}
+		.container{
+			width: 800px;
+			margin: 0 auto;
+		}
+		div{
+			padding: 0 0 15px 20px;
+			color: #38c5ff;
+			font-weight: bold;
+		}
+		fieldset{
+			padding: 30px 80px;
+			background-color: #fff;
+			border-color: #fff;
+			border: 0;
+		}
+		label.xrequired:after {
+	        content: '* ';
+	        color: #F00;
+    	}
+    	#card-type{
+    		width: 150px;
+    		padding: 2px 3px;
+    		border-radius: 5px;
+    	}
+    	.desc label{
+    		vertical-align: top;
+    	}
+    	.desc textarea{
+    		vertical-align: top;
+    		padding: 5px;
+    	}
+    	#submit{
+    		margin: 0 auto;
+    		width: 200px;
+    		padding-bottom: 0;
+    	}
+    	#submit input{
+    		padding: 10px 50px;
+    		font-size: 18px;
+    		background-color: #38c5ff;
+    		color: #fff;
+    		border: 0;
+    		font-weight: bold;
+
+    	}
+    	#yan{
+    		background-color: #38c5ff;
+    		color:#fff;
+    		border: 0;
+    		padding: 3px 8px;
+    		font-weight: bold;
+    	}
+	</style>
+</head>
+<body>
+<form action="" method="post">
+	<div class="container">
+		<div style="text-align: center;">
+			<h1 style="color: #fff">Siwo Bank credit card</h1>
+		</div>
+		<fieldset>
+			<div>
+				<label class="xrequired">用户名 : </label><input type="text" />
+			</div>
+			<div>
+				<label class="xrequired">证件号码 : </label><input type="text"/>
+			</div>
+			<div>
+				<label class="xrequired">手机号码 : </label><input type="number" min="0"/>
+				<label class="xrequired" style="margin-left: 15px;">验证码 : </label><input type="text" maxlength="6" size="10" />
+				<input type="button" value="发送验证码" id="yan">
+			</div>
+			<div>
+				<label class="xrequired">E-mail : </label><input type="email" />
+			</div>
+			<div>
+				<label>是否我行员工推荐 : </label>
+				<input type="radio" name="recom" value="yes">是
+				<input type="radio" name="recom" value="no" checked="checked">否
+			</div>
+			<div>
+				<label for="card-type" class="xrequired">发卡方式 : </label>
+				<select id="card-type">
+					<option value ="realcard">实体信用卡</option>
+					<option value ="non-realcard">无实体信用卡</option>
+				</select>
+			</div>
+			<div>
+				<label class="xrequired">现居地址 : </label><input type="text" size="64"/>
+			</div>
+			<div>
+				<label class="xrequired">单位地址 : </label><input type="text" size="64"/>
+			</div>
+			<div>
+				<label class="xrequired">单位电话 : </label><input type="number" min="0"/>
+			</div>
+			<div class="desc">
+				<label>备注 : </label><textarea cols="65" rows="10" placeholder="可在此处填写备注信息"></textarea>
+			</div>
+			<div id="submit">
+				<input type="submit" name="submit" value="提交" >
+			</div>
+		</fieldset>
+	</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zeju's Resume</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<style type="text/css">
+		html,body{
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+		}
+		.container{
+			display: flex;
+			height: 100%;
+		}
+		.left{
+			width: 200px;
+			background-color: #6FCADD;
+			padding: 25px;
+		}
+		.right{
+			flex: 1;
+		}
+		.name{
+			font-size: 38px;
+			color: #fff;
+		}
+		.name p{
+			word-wrap:break-word;  
+    		word-break:break-all;
+    		letter-spacing: 2px;
+    		margin: 0;
+		}
+		.head{
+			margin: 0 auto;
+			width: 180px;
+			height: 180px;
+			border: 1px solid #fff;
+			padding: 10px;
+			margin-top: 30px;
+		}
+		.left-contnt{
+			color: #fff;
+			margin-top: 30px;
+		}
+		.left-contnt span{
+			color: black;
+			font-size: 18px;
+		}
+		.nav{
+			padding: 10px 30px;
+			display: flex;
+			align-items: center;
+		}
+		.nav-item{
+			padding: 10px 20px;
+			font-size: 18px;
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+			color: black;
+		}
+		.nav-item span{
+			margin-left: 5px;
+		}
+		.title{
+			background-color: #6FCADD;
+			width: 350px;
+			font-size: 22px;
+			color: #fff;
+			font-weight: bold;
+			padding: 5px 30px;
+		}
+		.title-color1{
+			background-color: #ECAB1F;
+		}
+		.title-color2{
+			background-color: #3EB893;
+		}
+		.mdle-item{
+			padding: 30px;
+		}
+		.mdle-item-cut{
+			border-bottom: 2px dashed;
+		}
+		.mdle-title{
+			display: flex;
+			align-items: center;
+		}
+		.mdle-title h2{
+			margin: 0;
+		}
+		.mdle-content{
+			margin-top: 20px;
+			color: #686868;
+		}
+		.time{
+			color: #B9B9B9;
+			font-size: 16px;
+			margin-left: 20px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="left">
+		<div class="name">
+			<p>梁泽钜</p>
+		</div>
+		<div class="head">
+			<img src="yu.jpg" width="180" height="180">
+		</div>
+		<div class="left-contnt">
+			<h3>Phone</h3>
+			<span>&nbsp;&nbsp;&nbsp;&nbsp;15919248180</span>
+		</div>
+		<div class="left-contnt">
+			<h3>Email</h3>
+			<span>&nbsp;&nbsp;&nbsp;&nbsp;362119931@qq.com</span>
+		</div>
+		<div class="left-contnt">
+			<h3>Age</h3>
+			<span>&nbsp;&nbsp;&nbsp;&nbsp;22</span>
+		</div>
+		<div class="left-contnt">
+			<h3>Address</h3>
+			<span>&nbsp;&nbsp;&nbsp;&nbsp;珠海</span>
+		</div>
+	</div>
+	<div class="right">
+		<div class="nav">
+			<a class="nav-item" href="">
+				<img src="images/resume.png" width="18" height="18">
+				<span>Resume</span>
+			</a>
+			<a class="nav-item" href="">
+				<img src="images/edu.png" width="20" height="20">
+				<span>Education</span>
+			</a>
+			<a class="nav-item" href="">
+				<img src="images/work.png" width="20" height="20">
+				<span>Experience</span>
+			</a>
+			<a class="nav-item" href="">
+				<img src="images/about.png" width="18" height="18">
+				<span>About</span>
+			</a>
+			<a class="nav-item" href="">
+				<img src="images/down.png" width="18" height="18">
+				<span>Download</span>
+			</a>
+		</div>
+		<div class="moudle">
+			<div class="title">Education</div>
+			<div class="mdle-item">
+				<div class="mdle-title">
+					<h2>北京师范大学珠海分校</h2>
+					<span class="time">SEPTEMBER 2016 - PRESENT</span>
+				</div>
+				<div class="mdle-content">
+					北京师范大学珠海分校信息技术学院软件工程专业；在校通过CET-4；GPA 3.5；
+				</div>
+			</div>
+		</div>
+		<div class="moudle">
+			<div class="title title-color1">Experience</div>
+			<div class="mdle-item mdle-item-cut">
+				<div class="mdle-title">
+					<h2>七彩评价系统</h2>
+					<span class="time">SEPTEMBER 2017 - JUNE 2018</span>
+				</div>
+				<div class="mdle-content">
+					七彩评价系统是一个介于教师、家长、学生之间，目的是为学生的全面健康发展而搭建一种积极向上的教学平台。项目主要使用 Spring + SpringMVC + Mybatis 框架，使用 SVN 作为版本控制工具。主要负责评价系统的教师端、学生端以及 STEM 服务端的编写。
+				</div>
+			</div>
+			<div class="mdle-item">
+				<div class="mdle-title">
+					<h2>小北</h2>
+					<span class="time">SEPTEMBER 2017 - JUNE 2018</span>
+				</div>
+				<div class="mdle-content">
+					小北是一款针对校园生活的软件，涵盖了课程成绩查询、作业查询、考试信息、四六级成绩查询、普通话等级考试成绩查询、考勤请假查询等基础教务功能和其他特色功能如场地申请、图书馆信息管理、社区等等。项目主要使用微服务框架 SpringCloud，集成Oauth2进行身份认证，使用 Redis 做数据缓存，使用Git作为版本控制工具。负责消息推送、爬虫、智能审核模块等，为App提供数据来源。以及训练垃圾文本模型，审核用户发布信息，维持App绿色健康的环境。
+				</div>
+			</div>
+		</div>
+		<div class="moudle">
+			<div class="title title-color2">About</div>
+			<div class="mdle-item">
+				<div class="mdle-content" style="margin-top: 0;">
+					喜欢听音乐、看电影、打羽毛球
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

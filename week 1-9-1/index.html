@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UML Testing</title>
+	<style type="text/css">
+		html{
+			background-color: #38c5ff;
+		}
+		.container{
+			width: 1300px;
+			margin: 0 auto;
+		}
+		div{
+			padding: 0 0 15px 20px;
+			font-weight: bold;
+		}
+		fieldset{
+			padding: 30px 80px;
+			background-color: #fff;
+			border-color: #fff;
+			border: 0;
+		}
+		.head{
+			padding-bottom: 0;
+		}
+		.intro{
+			display: flex;
+			justify-content: space-around;
+			font-size: 20px;
+			padding-bottom: 0;
+		}
+		.intro span{
+			color: red;
+		}
+		.info{
+			display: flex;
+			justify-content: space-around;
+			font-size: 17px;
+			align-items: center;
+		}
+		.classes{
+         	background-image: url('class.png');
+         	background-size: 30px 20px;
+         	background-repeat:no-repeat;
+         	background-position: 133px 1px;
+		}
+		#feature_2,#feature_3{
+			margin-left: 5px;
+		}
+		#submit{
+    		margin: 0 auto;
+    		width: 200px;
+    		padding-bottom: 0;
+    	}
+    	#submit input{
+    		padding: 10px 50px;
+    		font-size: 18px;
+    		background-color: #38c5ff;
+    		color: #fff;
+    		border: 0;
+    		font-weight: bold;
+    	}
+	</style>
+	<script type="text/javascript">
+		function getClassInputArray(class_name){
+			return document.getElementsByClassName(class_name).item(0).getElementsByTagName('input');
+		}
+		function getInputById(id){
+			return document.getElementById(id);
+		}
+		function validate_form(form){
+			for(i=0;i<3;i++){
+				if(getClassInputArray("info")[i].value===""){
+					alert("没有填写个人基本信息，请重写填写")
+					return false;
+				}
+			}
+			if(!check_finish()){
+				if (confirm("有没完成的题目，你确定提交吗？")) {  
+		            return true; 
+		        }  
+		        else {  
+		            return false; 
+		        }
+			}
+			return true;
+		}
+		function check_finish(){
+			//fill in blank
+			for(i=0;i<getClassInputArray("fill").length;i++){
+				if(getClassInputArray("fill")[i].value===""){
+					return false;
+				}
+			}
+			//radio choise
+			var rad_num = 0;
+			for(i=0;i<getClassInputArray("rad").length;i++){
+				if(getClassInputArray("rad")[i].checked)
+					rad_num++;
+			}
+			if(rad_num<2)
+				return false;
+			//multiple choice
+			var ch1 = document.getElementsByName("ch_1");
+			var ch2 = document.getElementsByName("ch_2");
+			var ch1_num = 0;
+			for(i=0;i<ch1.length;i++){
+				if(ch1[i].checked){
+					ch1_num++;
+					break;
+				}
+			}
+			for(i=0;i<ch2.length;i++){
+				if(ch2[i].checked){
+					ch1_num++;
+					break;
+				}
+			}
+			if(ch1_num<2){
+				return false;
+			}
+			//tf
+			var jug1 = document.getElementsByName("jug_1");
+			var jug2 = document.getElementsByName("jug_2");
+			var jug_num = 0;
+			for(i=0;i<jug1.length;i++){
+				if(jug1[i].checked){
+					jug_num++;
+					break;
+				}
+			}
+			for(i=0;i<jug2.length;i++){
+				if(jug2[i].checked){
+					jug_num++;
+					break;
+				}
+			}
+			if(jug_num<2)
+				return false;
+			//short answer
+			if(document.getElementById("short_ans").value==="")
+				return false;
+			return true;
+		}
+		function cal(form){
+			var score = 0;
+			var index = 0;
+			var answers = ['Unified Modeling Language','Encapsulation','Inheritance','Polymorphism','b','a','abd','abc','f','t',['simplification and abstraction of the real world','expression of the system process,thing or concept of research','physical entity','certain graphic','mathematical expression']]
+			for(;index<getClassInputArray("fill").length;index++){
+				if(getClassInputArray("fill")[index].value===answers[index]){
+					score+=5;
+				}
+			}
+			console.log(score)
+			for(i=0;i<form.radio_1.length;i++){
+				if(form.radio_1[i].checked && form.radio_1[i].value===answers[index++]){
+					score+=10;
+					break;
+				}
+			}
+			for(i=0;i<form.radio_2.length;i++){
+				if(form.radio_2[i].checked && form.radio_2[i].value===answers[index++]){
+					score+=10;
+					break;
+				}
+			}
+			console.log(score)
+			var mut1 = "";
+			for(i=0;i<form.ch_1.length;i++){
+				if(form.ch_1[i].checked){
+					mut1+=form.ch_1[i].value;
+				}
+			}
+			var mut2 = "";
+			for(i=0;i<form.ch_2.length;i++){
+				if(form.ch_2[i].checked){
+					mut2+=form.ch_2[i].value;
+				}
+			}
+			if(mut1===answers[index++])
+				score+=10;
+			console.log(score)
+			if(mut2===answers[index++])
+				score+=10;
+			console.log(score)
+
+			for(i=0;i<form.jug_1.length;i++){
+				if(form.jug_1[i].checked && form.jug_1[i].value===answers[index++]){
+					score+=10;
+				}
+			}
+			console.log(score)
+			for(i=0;i<form.jug_2.length;i++){
+				if(form.jug_2[i].checked && form.jug_2[i].value===answers[index++]){
+					score+=10;
+				}
+			}
+			console.log(score)
+			var user_ans = getInputById("short_ans").value;
+			for(i=0;i<answers[index].length;i++){
+				if(user_ans.indexOf(answers[index][i])!=-1)
+					score+=4;
+			}
+			console.log(score)
+			alert(form.name.value+",your score is : "+score)
+			return true
+		}
+	</script>
+</head>
+<body>
+<form onsubmit="return validate_form(this)&&cal(this)">
+	<div class="container">
+		<div style="text-align: center;">
+			<h1 style="color: #fff">Unified Modeling Language Theory Test</h1>
+		</div>
+		<fieldset>
+			<div class="intro">
+				<p>Test Subject: <span>Unified Modeling Language</span></p>
+				<p>Time: <span>100 minutes</span></p>
+				<p>Score: <span>100</span></p>
+			</div>
+			<div class="info">
+				<label>Class : <input type="text" class="classes" id="class_name" value="Class 1" /></label>
+				<label>Student ID : <input type="text" id="student_id" value="001" /></label>
+				<label>Name : <input type="text" id="name" value="Darcy" /></label>
+			</div>
+			<div class="head">
+				<h1>1、Fill in blanks(5 points pre space,20 points total)</h1>
+			</div>
+			<div class="fill">
+				<ol>
+					<li><p>The full name of UML in Chinese is : <input type="text" id="uml_name"  value="Unified Modeling Language" /></p></li>
+					<li><p>The most prominent feature of the object is : <input type="text" id="feature_1" value="Encapsulation" /><input type="text" id="feature_2" value="Inheritance" /><input type="text" id="feature_3" value="Polymorphism" /></p></li>
+				</ol>
+			</div>
+			<div class="head">
+				<h1>2、Multiple choice question(10 points per space, 20 points total)</h1>
+			</div>
+			<div class="rad">
+				<ol>
+					<li id="radio_1">
+						<p>The relationship between UML and software engineering is : </p>
+						<p><input type="radio" name="radio_1" value="a">(A) UML is software engineering</p>
+						<p><input type="radio" name="radio_1" value="b" checked="checked">(B) UML participates in several stages of the software development process in software engineering</p>
+						<p><input type="radio" name="radio_1" value="c">(C) UML has nothing to do with software engineering</p>
+						<p><input type="radio" name="radio_1" value="d">(D) UML is part of software engineering</p>
+					</li>
+					<li id="radio_2">
+						<p>Java language support : </p>
+						<p><input type="radio" name="radio_2" value="a" checked="checked">(A) Single inheritance</p>
+						<p><input type="radio" name="radio_2" value="b">(B) Multiple inheritance</p>
+						<p><input type="radio" name="radio_2" value="c">(C) Single inheritance and multiple inheritance support</p>
+						<p><input type="radio" name="radio_2" value="d">(D) Single inheritance and multiple inheritance are not supported</p>
+					</li>
+				</ol>
+			</div>
+			<div class="head">
+				<h1>3、Multiple choice(10 points per space, 20 points total)</h1>
+			</div>
+			<div>
+				<ol>
+					<li id="ch_1">
+						<p>The granularity of the use case is divided into the following three : </p>
+						<p><input type="checkbox" name="ch_1" value="a" checked="checked">(A) Overview level</p>
+						<p><input type="checkbox" name="ch_1" value="b" checked="checked">(B) Demand level</p>
+						<p><input type="checkbox" name="ch_1" value="c">(C) User target level</p>
+						<p><input type="checkbox" name="ch_1" value="d" checked="checked">(D) Sub-function level</p>
+					</li>
+					<li id="ch_2">
+						<p>The class diagram consists of which of the following three parts : </p>
+						<p><input type="checkbox" name="ch_2" value="a" checked="checked">(A) Name</p>
+						<p><input type="checkbox" name="ch_2" value="b" checked="checked">(B) Attribute</p>
+						<p><input type="checkbox" name="ch_2" value="c" checked="checked">(C) Operation</p>
+						<p><input type="checkbox" name="ch_2" value="d">(D) Function</p>
+					</li>
+				</ol>
+			</div>
+			<div class="head">
+				<h1>4、True or False(10 points per space, 20 points total)</h1>
+			</div>
+			<div>
+				<ol>
+					<li id="jug_1">
+						<p>Use case diagrams are only used to communicate and communicate with customers to determine demand.
+							<input type="radio" name="jug_1" value="t">√
+							<input type="radio" name="jug_1" value="f" checked="checked">×
+						</p>
+						
+					</li>
+					<li id="jug_2">
+						<p>In the state diagram, the termination state allows any number of multiples in a state diagram.
+							<input type="radio" name="jug_2" value="t" checked="checked">√
+							<input type="radio" name="jug_2" value="f">×
+						</p>
+					</li>
+				</ol>
+			</div>
+			<div class="head">
+				<h1>5、Short answer question (20 points per space, 20 points total)</h1>
+			</div>
+			<div>
+				<ol>
+					<li>
+						<p>Briefly describe what the model is and how it behaves?</p>
+						<textarea cols="120" rows="15" id="short_ans">simplification and abstraction of the real world,expression of the system process,thing or concept of research,physical entity,certain graphic,mathematical expression</textarea>
+					</li>
+				</ol>
+			</div>
+			<div id="submit">
+				<input type="submit" name="submit" value="Calculating score" >
+			</div>
+		</fieldset>
+	</div>
+</form>
+</body>
+</html>

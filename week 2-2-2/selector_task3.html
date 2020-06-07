@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zeju CSS Selector Task 2</title>
+	<style type="text/css">
+		/* 具有title属性的div */
+		div[title]{
+			color: red;
+		}
+		/* title属性值为demo的div */
+		div[title="demo"]{
+			color: blue;
+		}
+		/* title属性值包含demo的div */
+		div[title*="demo"]{
+			color: green;
+		}
+		/* title属性值为zh或zh-的div */
+		div[title='zh'],div[title='zh-']{
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+<div title="zeju">zeju</div>
+<div title="ze">ze</div>
+<div title="zeju">zeju</div>
+<div>empty</div>
+<div title="demo">demo</div>
+<div title="demo222">demo222</div>
+<div title="11demo55">11demo55</div>
+<div title="zh">zh</div>
+<div title="zh-">zh-</div>
+<div class="di">di</div>
+</body>
+</html>

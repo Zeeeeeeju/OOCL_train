@@ -7,4 +7,5 @@ CREATE TABLE `score` (
   `score` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 insert into score values(null,'001','1001','80'),(null,'002','1002','60'),(null,'001','1001','70'),(null,'002','1002','60.5');
